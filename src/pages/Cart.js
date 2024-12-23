@@ -22,7 +22,7 @@ const Cart = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:5000/api/orders', { items }, {
+      const response = await axios.post('https://shopzone-backend-b00q.onrender.com/api/orders', { items }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -54,7 +54,7 @@ const Cart = () => {
         return;
       }
       const productIdStr = String(productId);
-      const response = await axios.post('http://localhost:5000/api/cart/update', { productId: productIdStr, quantity: newQuantity }, {
+      const response = await axios.post('https://shopzone-backend-b00q.onrender.com/api/cart/update', { productId: productIdStr, quantity: newQuantity }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -79,7 +79,7 @@ const Cart = () => {
 
       const productIdStr = String(productId);
       const response = await axios.delete(
-        'http://localhost:5000/api/cart/remove',
+        'https://shopzone-backend-b00q.onrender.com/api/cart/remove',
         {
           headers: {
             Authorization: `Bearer ${token}`,

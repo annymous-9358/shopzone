@@ -6,7 +6,7 @@ const getToken = () => {
 };
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://shopzone-backend-b00q.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
