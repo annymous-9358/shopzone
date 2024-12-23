@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6dd34e8f.css",
+    "main.js": "/static/js/main.d6ad806e.js",
+    "static/media/electronics.jpg": "/static/media/electronics.7a161e02d2289d993da2.jpg",
+    "static/media/men_clothing.jpg": "/static/media/men_clothing.b58c61d94ee356509a93.jpg",
+    "static/media/jewelery.jpg": "/static/media/jewelery.01771d89485d3378ede5.jpg",
+    "static/media/women_clothing.jpg": "/static/media/women_clothing.6f13fa43fc083a84f8f3.jpg",
+    "index.html": "/index.html",
+    "main.6dd34e8f.css.map": "/static/css/main.6dd34e8f.css.map",
+    "main.d6ad806e.js.map": "/static/js/main.d6ad806e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6dd34e8f.css",
+    "static/js/main.d6ad806e.js"
+  ]
+}
