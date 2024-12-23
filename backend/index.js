@@ -16,7 +16,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://shopzonekunik.netlify.app/' }));
 app.use(express.json());
 
 // Routes
