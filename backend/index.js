@@ -45,7 +45,7 @@ if (!mongoUri) {
   console.error(
     "Error: MONGODB_URI is not defined in the environment variables."
   );
-  process.exit(1); // Exit the application if the URI is not set
+  process.exit(1); 
 }
 
 mongoose

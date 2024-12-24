@@ -13,7 +13,7 @@ const formatUserData = (user) => ({
 
 export const getUserProfile = asyncHandler(async (req, res) => {
   try {
-    console.log(`Fetching profile for user ID: ${req.user.id}`);
+    // console.log(`Fetching profile for user ID: ${req.user.id}`);
 
     const userId = new mongoose.Types.ObjectId(req.user.id);
     const user = await User.findById(userId);
@@ -23,16 +23,16 @@ export const getUserProfile = asyncHandler(async (req, res) => {
     }
 
     const productIds = user.cart.map(item => item.productId);
-    console.log(`Product IDs in cart:`, productIds);
+    // console.log(`Product IDs in cart:`, productIds);
     const products = await Product.find({ id: { $in: productIds } });
-    console.log(`Products retrieved:`, products);
+    // console.log(`Products retrieved:`, products);
 
     const userData = formatUserData(user);
 
     if (user.cart && user.cart.length) {
       userData.cart = user.cart.map(item => {
         const product = products.find(p => p.id === item.productId);
-        console.log(`Mapping cart item:`, item, `with product:`, product);
+        // console.log(`Mapping cart item:`, item, `with product:`, product);
         return {
           productId: product.id,
           name: product.title,
