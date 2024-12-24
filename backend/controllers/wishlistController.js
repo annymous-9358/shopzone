@@ -5,30 +5,30 @@ import mongoose from 'mongoose';
 // Add item to Wishlist
 export const addToWishlist = async (req, res) => {
   const { productId, quantity = 1 } = req.body;
-  console.log(`Request to add product ${productId} to wishlist for user ${req.user.id}`);
+  // console.log(`Request to add product ${productId} to wishlist for user ${req.user.id}`);
   try {
-    console.log(`Finding user with id: ${req.user.id}`);
+    // console.log(`Finding user with id: ${req.user.id}`);
     const user = await User.findById(req.user.id);
     if (!user) {
-      console.log(`User with id ${req.user.id} not found`);
+      // console.log(`User with id ${req.user.id} not found`);
       return res.status(404).json({ error: 'User not found' });
     }
 
-    console.log(`Querying product with id: ${productId}`);
+    // console.log(`Querying product with id: ${productId}`);
     const product = await Product.findOne({ id: productId });
-    console.log(`Product query result: ${product}`);
+    // console.log(`Product query result: ${product}`);
     if (!product) {
-      console.log(`Product with id ${productId} not found`);
+      // console.log(`Product with id ${productId} not found`);
       return res.status(404).json({ error: 'Product not found' });
     }
 
-    console.log('Checking if product is already in wishlist');
+    // console.log('Checking if product is already in wishlist');
     const wishlistItemIndex = user.wishlist.findIndex(item => item.productId === product.id);
     if (wishlistItemIndex > -1) {
-      console.log(`Product ${productId} is already in wishlist, updating quantity`);
+      // console.log(`Product ${productId} is already in wishlist, updating quantity`);
       user.wishlist[wishlistItemIndex].quantity += quantity;
     } else {
-      console.log(`Product ${productId} is not in wishlist, adding new item`);
+      // console.log(`Product ${productId} is not in wishlist, adding new item`);
       user.wishlist.push({
         productId: product.id,
         quantity,
@@ -36,12 +36,12 @@ export const addToWishlist = async (req, res) => {
         productImage: product.image,
         productPrice: product.price
       });
-      console.log(`Added new product ${productId} to wishlist`);
+      // console.log(`Added new product ${productId} to wishlist`);
     }
 
-    console.log('Saving updated user data');
+    // console.log('Saving updated user data');
     await user.save();
-    console.log(`Product ${productId} added to wishlist successfully for user ${req.user.id}`);
+    // console.log(`Product ${productId} added to wishlist successfully for user ${req.user.id}`);
     res.json({ message: 'Product added to wishlist successfully', wishlist: user.wishlist });
   } catch (error) {
     console.error(`Error updating wishlist for user ${req.user.id}: ${error}`);

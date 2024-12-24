@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-white text-lg font-bold">ShopMERN</h3>
+            <h3 className="text-white text-lg font-bold">ShopZone</h3>
             <p className="text-gray-400 text-sm">
               Your one-stop shop for all your needs. Quality products, competitive prices.
             </p>
@@ -77,7 +77,7 @@ const Footer = () => {
         
         <div className="mt-8 border-t border-gray-700 pt-8">
           <p className="text-gray-400 text-sm text-center">
-            © {new Date().getFullYear()} ShopMERN. All rights reserved.
+            © {new Date().getFullYear()} shopzone. All rights reserved.
           </p>
         </div>
       </div>
