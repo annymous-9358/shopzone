@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useOrderStore } from '../store/useOrderStore';
-import { useCartStore } from '../store/useCartStore';
+import React, { useEffect } from "react";
+import { useOrderStore } from "../store/useOrderStore";
+import { useCartStore } from "../store/useCartStore";
 
 const Orders = () => {
   const { orders, fetchOrders } = useOrderStore();
@@ -21,19 +21,36 @@ const Orders = () => {
             <h3 className="text-xl font-semibold mb-2">Order #{index + 1}</h3>
             <p className="text-gray-600 mb-2">Total: ${order.totalAmount}</p>
             <p className="text-gray-600 mb-2">Status: {order.status}</p>
-            <p className="text-gray-600 mb-2">Tracking Number: {order.trackingNumber}</p>
+            <p className="text-gray-600 mb-2">
+              Tracking Number: {order.trackingNumber}
+            </p>
             {order.address ? (
-              <p className="text-gray-600 mb-4">Address: {order.address.street}, {order.address.city}, {order.address.state}, {order.address.zipCode}, {order.address.country}</p>
+              <p className="text-gray-600 mb-4">
+                Address: {order.address.street}, {order.address.city},{" "}
+                {order.address.state}, {order.address.zipCode},{" "}
+                {order.address.country}
+              </p>
             ) : (
-              <p className="text-gray-600 mb-4">Address information not available</p>
+              <p className="text-gray-600 mb-4">
+                Address information not available
+              </p>
             )}
             <ul className="space-y-4">
-              {order.items.map(item => (
-                <li key={item.productId} className="flex items-center space-x-4">
-                  <img src={item.image} alt={item.name} className="w-16 h-16 object-contain rounded-md" />
+              {order.items.map((item) => (
+                <li
+                  key={item.productId}
+                  className="flex items-center space-x-4"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-16 h-16 object-contain rounded-md"
+                  />
                   <div>
                     <p className="font-medium">{item.name}</p>
-                    <p className="text-gray-500">{item.quantity} x ${item.price}</p>
+                    <p className="text-gray-500">
+                      {item.quantity} x ${item.price}
+                    </p>
                   </div>
                 </li>
               ))}
