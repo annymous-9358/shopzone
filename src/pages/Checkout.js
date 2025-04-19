@@ -152,7 +152,7 @@ const Checkout = () => {
           },
         });
         console.log("Cart items removed from database");
-        navigate("api/orders", { state: { orderDetails: response.data } });
+        navigate("/orders", { state: { orderDetails: response.data } });
       } else {
         console.error("Failed to place order:", response.data);
       }
