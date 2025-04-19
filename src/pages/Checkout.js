@@ -146,13 +146,13 @@ const Checkout = () => {
         alert("Order placed successfully!");
         clearCart();
         console.log("Cart cleared");
-        await api.delete("/cart/drop", {
+        await api.delete("api/cart/drop", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
         console.log("Cart items removed from database");
-        navigate("/orders", { state: { orderDetails: response.data } });
+        navigate("api/orders", { state: { orderDetails: response.data } });
       } else {
         console.error("Failed to place order:", response.data);
       }
