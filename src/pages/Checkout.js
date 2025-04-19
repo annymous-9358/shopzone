@@ -29,7 +29,7 @@ const Checkout = () => {
   const getUserId = async () => {
     try {
       const token = localStorage.getItem("token"); // Assuming the token is stored in localStorage
-      const response = await api.get("/users/profile", {
+      const response = await api.get("api/users/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -86,7 +86,7 @@ const Checkout = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await api.get("/users/profile");
+        const response = await api.get("api/users/profile");
         const userData = response.data;
         setAddresses(userData.addresses);
         if (userData.addresses.length > 0) {
@@ -140,7 +140,7 @@ const Checkout = () => {
       console.log("Order Data:", orderData);
 
       // Send order data to backend
-      const response = await api.post("/orders", orderData);
+      const response = await api.post("api/orders", orderData);
       if (response.status === 201) {
         console.log("Order placed successfully:", response.data);
         alert("Order placed successfully!");
@@ -163,7 +163,7 @@ const Checkout = () => {
 
   const handleAddAddress = async () => {
     try {
-      const response = await api.post("/users/profile/address", newAddress);
+      const response = await api.post("api/users/profile/address", newAddress);
       const { addresses: updatedAddresses } = response.data;
       if (updatedAddresses && updatedAddresses.length > 0) {
         const newAddress = updatedAddresses[updatedAddresses.length - 1];
